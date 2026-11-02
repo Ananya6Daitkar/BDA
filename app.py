@@ -158,6 +158,7 @@ def get_events_for_charts():
         return None
 
 def like_post(post_id):
+    """Toggle like status for a post"""
     if 'liked_posts' not in st.session_state:
         st.session_state.liked_posts = set()
     if post_id in st.session_state.liked_posts:
@@ -784,10 +785,28 @@ def render_feed_section():
             </div>
             """, unsafe_allow_html=True)
             
-            # Like button
-            if st.button("❤️ Like", key=f"like_{i}", use_container_width=True):
-                like_post(post.get('title', i))
-                st.rerun()
+            # Like button with visual feedback
+            if 'liked_posts' not in st.session_state:
+                st.session_state.liked_posts = set()
+            
+            post_title = post.get('title', i)
+            is_liked = post_title in st.session_state.liked_posts
+            
+            # Dynamic button styling
+            like_emoji = "❤️" if is_liked else "🤍"
+            button_color = "red" if is_liked else "gray"
+            
+            col_like1, col_like2 = st.columns([4, 1])
+            
+            with col_like1:
+                if st.button(f"{like_emoji} {'Unlike' if is_liked else 'Like'}", key=f"like_{i}", use_container_width=True):
+                    like_post(post_title)
+                    st.rerun()
+            
+            with col_like2:
+                # Show like count
+                like_count = len([p for p in st.session_state.liked_posts if post_title in str(p)])
+                st.metric("", value=like_count if like_count > 0 else 0, label_visibility="collapsed")
             
             st.markdown('</div>', unsafe_allow_html=True)
 
