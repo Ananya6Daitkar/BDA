@@ -11,7 +11,7 @@ object KafkaSparkConsumer {
       .master("local[*]")
       .config(
         "spark.mongodb.write.connection.uri",
-        "mongodb+srv://anishka2310506:K3qDHcjm7vsHpX4X@cluster0.hxrzwvw.mongodb.net/instaFeed?retryWrites=true&w=majority&appName=Cluster0"
+        "mongodb+srv://newuser:Ananya%402006@cluster0.gm70avx.mongodb.net/instaFeed?retryWrites=true&w=majority&tlsAllowInvalidCertificates=true&appName=Cluster0"
       )
       .getOrCreate()
 

@@ -1,0 +1,84 @@
+# FeedOrbit .gitignore
+
+# Environment variables - NEVER COMMIT CREDENTIALS
+.env
+*.env
+
+# Scala / SBT
+target/
+project/target/
+project/project/
+*.class
+*.log
+.bsp/
+
+# Spark
+checkpoints/
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Jupyter
+.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Kafka
+/tmp/
+kafka-logs/
+
+# MongoDB
+*.db
+
+# Build artifacts
+*.jar
+!project/build.properties
+
+# Streamlit (exclude cache, keep config)
+.streamlit/*
+!.streamlit/config.toml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

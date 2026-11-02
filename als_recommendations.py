@@ -11,18 +11,18 @@ import datetime
 import shutil
 
 # ---------------------- Java & Spark environment ----------------------
-java_home = r" " #Directory of the java_home
+java_home = r"/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
 os.environ["JAVA_HOME"] = java_home
-os.environ["PATH"] = java_home + r"\bin;" + os.environ["PATH"]
-os.environ["PYSPARK_PYTHON"] = r" " # Directory of the python.exe
-os.environ["PYSPARK_DRIVER_PYTHON"] = r" " # Directory of the python.exe
+os.environ["PATH"] = java_home + r"/bin:" + os.environ["PATH"]
+os.environ["PYSPARK_PYTHON"] = r"/Library/Frameworks/Python.framework/Versions/3.15/bin/python3"
+os.environ["PYSPARK_DRIVER_PYTHON"] = r"/Library/Frameworks/Python.framework/Versions/3.15/bin/python3"
 
 print("JAVA_HOME:", os.environ["JAVA_HOME"])
-print("java.exe found:", shutil.which("java"))
+print("java found:", shutil.which("java"))
 
 # ---------------------- MongoDB connection ----------------------
-mongo_uri = " " #Mongodb connection URL
-client = MongoClient(mongo_uri)
+mongo_uri = "mongodb+srv://newuser:Ananya%402006@cluster0.gm70avx.mongodb.net/"
+client = MongoClient(mongo_uri, tlsAllowInvalidCertificates=True)
 db = client["instaFeed"]
 
 users_col = db["users"]
