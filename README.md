@@ -19,7 +19,6 @@ The main goal is to demonstrate a **real-time event-driven recommendation engine
 - [Installation / Setup](#-installation--setup)
 - [Usage / How to Run](#-usage--how-to-run)
 - [File Structure](#-file-structure)
-- [Credits / Authors](#-credits--authors)  
 - [License](#-license)
 
 ---
@@ -487,27 +486,11 @@ FeedOrbit/
 
 ---
 
-# 👥 Credits / Authors
 
-K Anishka , SSN College of Engineering , Tamil nadu , India
-
-Anne Jacika J , SSN College of Engineering , Tamil nadu , India
-
-Deepa Lakshmi V , SSN College of Engineering , Tamil nadu , India
-
----
 
 # 📄 License
 
-© 2025 K Anishka, Anne Jacika J, Deepa Lakshmi V. All rights reserved.
+© 2025. All rights reserved.
 
-This project is proprietary and may not be copied, modified, or distributed without permission.
-
-
-
-
-
-
-```python
-
-```
+This is a personal project created from scratch with original code, design, and implementation.
+Not open for external contributions.
