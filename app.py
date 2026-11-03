@@ -846,31 +846,14 @@ def render_analytics():
         st.plotly_chart(fig2, use_container_width=True, key="chart2")
         st.markdown('</div>', unsafe_allow_html=True)
     
-    col3, col4 = st.columns(2)
-    
-    with col3:
-        st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-        st.markdown('<h3 class="chart-title">Events Timeline</h3>', unsafe_allow_html=True)
-        if 'timestamp' in df.columns:
-            df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
-            df_sorted = df.sort_values('timestamp')
-            events_by_date = df_sorted.groupby(df_sorted['timestamp'].dt.date).size().reset_index(name='count')
-            events_by_date.columns = ['date', 'count']
-            fig3 = px.line(events_by_date, x='date', y='count', markers=True, line_shape='linear')
-            fig3.update_traces(line=dict(color='#4F46E5', width=2), marker=dict(size=5))
-            fig3.update_layout(height=300, margin=dict(t=0, b=0, l=0, r=0), hovermode='x unified', xaxis_title='Date', yaxis_title='Events', showlegend=False, font=dict(family="Inter"))
-            st.plotly_chart(fig3, use_container_width=True, key="chart3")
-        st.markdown('</div>', unsafe_allow_html=True)
-    
-    with col4:
-        st.markdown('<div class="chart-card">', unsafe_allow_html=True)
-        st.markdown('<h3 class="chart-title">User Distribution</h3>', unsafe_allow_html=True)
-        user_counts = df['user_id'].value_counts()
-        fig4 = px.histogram(user_counts.values, nbins=25, title='', labels={'value': 'Events per User'})
-        fig4.update_traces(marker=dict(color='#4F46E5'))
-        fig4.update_layout(height=300, margin=dict(t=0, b=0, l=0, r=0), xaxis_title='Events per User', yaxis_title='Users', showlegend=False, font=dict(family="Inter"))
-        st.plotly_chart(fig4, use_container_width=True, key="chart4")
-        st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('<div class="chart-card">', unsafe_allow_html=True)
+    st.markdown('<h3 class="chart-title">User Distribution</h3>', unsafe_allow_html=True)
+    user_counts = df['user_id'].value_counts()
+    fig4 = px.histogram(user_counts.values, nbins=25, title='', labels={'value': 'Events per User'})
+    fig4.update_traces(marker=dict(color='#4F46E5'))
+    fig4.update_layout(height=300, margin=dict(t=0, b=0, l=0, r=0), xaxis_title='Events per User', yaxis_title='Users', showlegend=False, font=dict(family="Inter"))
+    st.plotly_chart(fig4, use_container_width=True, key="chart4")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 def render_pipeline():
     """Render pipeline status"""
